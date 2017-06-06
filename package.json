@@ -1,0 +1,19 @@
+{
+  "name": "codemy-intro-react",
+  "version": "1.0.0",
+  "description": "practice following the online course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YunzhiWei/codemy-intro-react.git"
+  },
+  "author": "Chris Wei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YunzhiWei/codemy-intro-react/issues"
+  },
+  "homepage": "https://github.com/YunzhiWei/codemy-intro-react#readme"
+}
