@@ -28,21 +28,25 @@ class Layout extends React.Component {
     console.log("button click");
   };
 
+  newContact = () =>
+    <div className='pure-g'>
+      <div className='pure-u-12-24'>
+        <form className="pure-form">
+          <fieldset>
+            <legend>New contact</legend>
+            <input type="email" placeholder="Email@domain.com" />
+            <input type="Text" placeholder="Name" />
+            <button type="submit" className="pure-button pure-button-primary">Sign in</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+
   render() {
     return(
       <div id='Layout'>
-        <div className='pure-g'>
-          <div className='pure-u-12-24'>
-            <form className="pure-form">
-              <fieldset>
-                <legend>New contact</legend>
-                <input type="email" placeholder="Email@domain.com" />
-                <input type="Text" placeholder="Name" />
-                <button type="submit" className="pure-button pure-button-primary">Sign in</button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
+        {this.newContact()}
         <div>
           <div className='pure-g'>
             {this.state.contacts.map((info) =>
