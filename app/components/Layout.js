@@ -27,7 +27,7 @@ class Layout extends React.Component {
     return(
       <div id='Layout' className='pure-g'>
         {data.map((info) =>
-          <Contact name={info.name} email={info.email} />
+          <Contact {...info} />
         )}
       </div>
     )
