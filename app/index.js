@@ -1,4 +1,4 @@
-import "./style.css";
+import 'purecss/build/pure.css'
 
 import React from "react";
 import { render } from "react-dom"
