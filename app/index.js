@@ -3,17 +3,9 @@ import "./style.css";
 import React from "react";
 import { render } from "react-dom"
 
-class HelloReact extends React.Component {
-  render() {
-    return(
-      <div id='helloreact'>
-        Hello from react
-      </div>
-    )
-  }
-}
+import { Layout } from "./components"
 
 render(
-  <HelloReact />,
+  <Layout />,
   document.getElementById('root-app')
 )
