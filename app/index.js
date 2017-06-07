@@ -3,7 +3,7 @@ import "purecss/build/pure.css";
 import React from "react";
 import { render } from "react-dom";
 
-import { browserHistory, Router, Route, IndexRoute } from 'react-router';
+import { browserHistory, Router } from 'react-router';
 import routes  from "./routes";
 
 render(
