@@ -1,11 +1,12 @@
-import 'purecss/build/pure.css'
+import "purecss/build/pure.css";
 
 import React from "react";
-import { render } from "react-dom"
+import { render } from "react-dom";
 
-import { Layout } from "./components"
+import { browserHistory, Router, Route, IndexRoute } from 'react-router';
+import routes  from "./routes";
 
 render(
-  <Layout />,
+  <Router routes={routes} history={browserHistory} />,
   document.getElementById('root-app')
-)
+);
