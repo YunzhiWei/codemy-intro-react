@@ -1,4 +1,4 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -9,7 +9,6 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[id].js'
   },
-/*
   devServer: {
     hot: true,
     inline: true,
@@ -18,18 +17,19 @@ module.exports = {
   resolve: {
     modules: ['node_modules', 'lib', 'app', 'vendor']
   },
-*/
   module: {
     rules: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       },
       {
         test: /\.(scss|sass)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader'
@@ -39,7 +39,7 @@ module.exports = {
             options: {
               modules: true,
               importloaders: 1,
-              localIdentName: '[path]_[name]_[local]_[hash:base64:5]'
+              localIdentName: '[path]_[name]_[local]_[hash:base64:5]',
             }
           },
           {
@@ -59,6 +59,7 @@ module.exports = {
             presets: ['env', 'stage-0', 'react'],
             plugins: [
               'transform-runtime',
+              'transform-decorators-legacy',
               require('babel-plugin-transform-object-rest-spread')
             ]
           }
@@ -67,10 +68,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      disable: false,
-      allChunks: true
-    })
+    // new ExtractTextPlugin({
+    //   filename: '[name].css',
+    //   disable: false,
+    //   allChunks: true
+    // })
   ]
 };
