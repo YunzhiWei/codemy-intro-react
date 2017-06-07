@@ -3,7 +3,7 @@ import React from "react";
 import ContactInfo from './data';
 import Contact from './Contact';
 
-import './Collection.css'
+import styles from './Collection.sass'
 
 class Collection extends React.Component {
   componentWillMount() {
@@ -48,7 +48,7 @@ class Collection extends React.Component {
 
   render() {
     return(
-      <div id='Collection'>
+      <div id='Collection' className={styles.main}>
         {this.newContact()}
         <div>
           <div className='pure-g'>
