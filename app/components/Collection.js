@@ -3,9 +3,9 @@ import React from "react";
 import ContactInfo from './data';
 import Contact from './Contact';
 
-import './Layout.css'
+import './Collection.css'
 
-class Layout extends React.Component {
+class Collection extends React.Component {
   componentWillMount() {
     this.setState({
       contacts: ContactInfo
@@ -48,7 +48,7 @@ class Layout extends React.Component {
 
   render() {
     return(
-      <div id='Layout'>
+      <div id='Collection'>
         {this.newContact()}
         <div>
           <div className='pure-g'>
@@ -62,4 +62,4 @@ class Layout extends React.Component {
   }
 }
 
-export default Layout;
+export default Collection;
