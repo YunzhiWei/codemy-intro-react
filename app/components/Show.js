@@ -1,30 +1,13 @@
 import React from "react";
 
-import ContactInfo from './data';
+import { observer } from 'mobx-react';
 
+@observer(['contacts'])
 class Show extends React.Component {
   componentWillMount() {
-    console.log("ContactInfo", ContactInfo);
-
-    let items = ContactInfo.filter(
-      c => c.id === parseInt(this.props.params.contactId, 10)
-    );
-
-    console.log("items", items);
-    console.log("len", items.length);
-
-    if (items.length >= 1) {
       this.setState({
-        contact: items[0]
+        contact: this.props.contacts.find(parseInt(this.props.params.contactId))
       });
-    }
-    else {
-      this.setState({
-        contact: {
-          name: ""
-        }
-      });
-    }
   }
 
   render() {
