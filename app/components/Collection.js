@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from 'mobx-react';
 
-import ContactInfo from './data';
 import Contact from './Contact';
 
 import styles from './Collection.sass'
@@ -11,24 +10,18 @@ class Collection extends React.Component {
   componentWillMount() {
     console.log("props.contacts: ", this.props.contacts.all);
     console.log("props.contacts: ", this.props.contacts.all.slice());
-
-    this.setState({
-      contacts: ContactInfo
-    })
   }
   addContact = (e) => {
     e.preventDefault();
 
-    const contacts = this.state.contacts;
+    const contacts = this.props.contacts.all.slice();
     const newID = contacts.length + 1;
 
-    this.setState({
-      contacts: contacts.concat({
-        id: newID,
-        name: this.refs.name.value,
-        email: this.refs.email.value
-      })
-    })
+    this.props.contacts.add({
+      id: newID,
+      name: this.refs.name.value,
+      email: this.refs.email.value
+    });
 
     this.refs.name.value = null;
     this.refs.email.value = null;

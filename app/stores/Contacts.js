@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
 
 class Contacts {
   @observable all = [
@@ -17,7 +17,12 @@ class Contacts {
       name: 'Jolin Wei',
       email: 'jollin@qq.com'
     },
-  ]
+  ];
+
+  @action add(data) {
+    const existing = this.all;
+    this.all = existing.concat(data);
+  }
 }
 
 export default new Contacts();
