@@ -12,7 +12,7 @@ import routes  from "./routes";
 import stores from './stores';
 
 render(
-  <Provider {...stores}>
+  <Provider contacts={stores.contacts}>
     <Router routes={routes} history={browserHistory} />
   </Provider>,
   document.getElementById('root-app')
