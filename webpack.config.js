@@ -21,7 +21,6 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader'
@@ -29,7 +28,6 @@ module.exports = {
       },
       {
         test: /\.(scss|sass)$/,
-        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader'
@@ -45,7 +43,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: ['./vendor']
+              includePaths: ['./vendor', './app']
             }
           }
         ]
@@ -53,16 +51,13 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env', 'stage-0', 'react'],
-            plugins: [
-              'transform-runtime',
-              'transform-decorators-legacy',
-              require('babel-plugin-transform-object-rest-spread')
-            ]
-          }
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'stage-0', 'react'],
+          plugins: [
+            'transform-runtime',
+            'transform-decorators-legacy'
+          ]
         }
       }
     ]
