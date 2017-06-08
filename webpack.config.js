@@ -62,9 +62,6 @@ module.exports = {
       }
     ]
   },
-  sassLoader: {
-    includePaths: ['./vendor']
-  },
   plugins: [
     // new ExtractTextPlugin({
     //   filename: '[name].css',
