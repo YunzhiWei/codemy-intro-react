@@ -4,6 +4,7 @@
   "description": "practice following the online course",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
