@@ -27,6 +27,11 @@ class Contacts {
   @action find(contactId) {
     return ( this.all.slice().filter(c => c.id == contactId)[0] );
   }
+
+  @action remove(contactId) {
+    const existing = this.all;
+    this.all = existing.filter(c => c.id != contactId);
+  }
 }
 
 export default new Contacts();
