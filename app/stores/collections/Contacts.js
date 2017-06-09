@@ -1,23 +1,22 @@
 import { observable, action } from 'mobx';
 
 class Contacts {
-  @observable all = [
-    {
-      id: 1,
-      name: 'Chris Wei',
-      email: 'yunzhi.wei@live.com'
-    },
-    {
-      id: 2,
-      name: 'Clare Huang',
-      email: 'wulang@hotmail.com'
-    },
-    {
-      id: 3,
-      name: 'Jolin Wei',
-      email: 'jollin@qq.com'
-    },
-  ];
+  @observable all = [];
+  @observable isLoading = false;
+
+  @action async fetchAll() {
+    console.log("fetchAll +");
+
+    this.isLoading = false;
+    const response = await fetch('http://localhost:3000/contacts');
+    const status = await response.status;
+
+    if (status === 200) {
+      this.all = await response.json();
+      console.log("this.all: ", this.all);
+    }
+    console.log("fetchAll -");
+  }
 
   @action add(data) {
     const existing = this.all;
@@ -35,3 +34,21 @@ class Contacts {
 }
 
 export default new Contacts();
+
+/*
+{
+  id: 1,
+  name: 'Chris Wei',
+  email: 'yunzhi.wei@live.com'
+},
+{
+  id: 2,
+  name: 'Clare Huang',
+  email: 'wulang@hotmail.com'
+},
+{
+  id: 3,
+  name: 'Jolin Wei',
+  email: 'jollin@qq.com'
+},
+*/

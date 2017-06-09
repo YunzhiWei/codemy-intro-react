@@ -8,8 +8,10 @@ import styles from './Collection.sass'
 @observer(['contacts'])
 class Collection extends React.Component {
   componentWillMount() {
-    console.log("props.contacts: ", this.props.contacts.all);
-    console.log("props.contacts: ", this.props.contacts.all.slice());
+    console.log("will mount +")
+    this.props.contacts.fetchAll();
+    // console.log("props.contacts: ", this.props.contacts.all);
+    console.log("will mount -")
   }
   addContact = (e) => {
     e.preventDefault();
@@ -19,11 +21,13 @@ class Collection extends React.Component {
 
     this.props.contacts.add({
       id: newID,
-      name: this.refs.name.value,
+      first_name: this.refs.first_name.value,
+      last_name: this.refs.last_name.value,
       email: this.refs.email.value
     });
 
-    this.refs.name.value = null;
+    this.refs.first_name.value = null;
+    this.refs.last_name.value = null;
     this.refs.email.value = null;
 
     console.log("button click");
@@ -36,13 +40,13 @@ class Collection extends React.Component {
           <fieldset>
             <legend>New contact</legend>
             <input ref='email' type="email" placeholder="Email@domain.com" />
-            <input ref='name' type="Text" placeholder="Name" />
+            <input ref='first_name' type="Text" placeholder="First Name" />
+            <input ref='last_name' type="Text" placeholder="Last_Name" />
             <button type="submit" className="pure-button pure-button-primary">Add Contact</button>
           </fieldset>
         </form>
       </div>
     </div>
-
 
   render() {
     return(
@@ -50,7 +54,7 @@ class Collection extends React.Component {
         {this.newContact()}
         <div>
           <div className='pure-g'>
-            {this.props.contacts.all.slice().map((info) =>
+            {this.props.contacts.all.map((info) =>
               <Contact key={info.id} {...info} />
             )}
           </div>
