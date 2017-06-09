@@ -19,7 +19,7 @@ class Contact extends React.Component {
       <div className={`${styles.contact} pure-u-1-3`}>
         <h3>
           <Link to={`/contacts/${this.props.id}`}>
-            {this.props.name}
+            {this.props.first_name} {this.props.last_name}
           </Link>
         </h3>
         <p>{this.props.email}</p>
