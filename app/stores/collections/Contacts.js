@@ -70,18 +70,21 @@ export default new Contacts();
 
 /*
 {
-  id: 1,
-  name: 'Chris Wei',
-  email: 'yunzhi.wei@live.com'
+  "id": 1,
+  "first_name": "Chris",
+  "last_name": "Wei",
+  "email": "yunzhi.wei@live.io"
 },
 {
-  id: 2,
-  name: 'Clare Huang',
-  email: 'wulang@hotmail.com'
+  "id": 2,
+  "first_name": "Clare",
+  "last_name": "Huang",
+  "email": "wulang@hotmail.io"
 },
 {
-  id: 3,
-  name: 'Jolin Wei',
-  email: 'jollin@qq.com'
-},
+  "id": 3,
+  "first_name": "Jolin",
+  "last_name": "Wei",
+  "email": "jollin@qq.io"
+}
 */
