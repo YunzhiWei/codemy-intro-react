@@ -11,16 +11,45 @@ class Contacts {
     const response = await fetch('http://localhost:3000/contacts');
     const status = await response.status;
 
+    if (status === 304) {
+      console.log("304");
+    }
     if (status === 200) {
+      console.log("200");
       this.all = await response.json();
       console.log("this.all: ", this.all);
     }
     console.log("fetchAll -");
   }
 
-  @action add(data) {
-    const existing = this.all;
-    this.all = existing.concat(data);
+  @action async add(data) {
+    console.log("add +");
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const options = {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data)
+    }
+
+    this.isLoading = false;
+    const request = new Request('http://localhost:3000/contacts', options);
+    const response = await fetch(request);
+    const status = await response.status;
+
+    if (status === 200) {
+      console.log("304");
+      this.all = await response.json();
+      this.fetchAll();
+    }
+    if (status === 201) {
+      console.log("304");
+      this.all = await response.json();
+      this.fetchAll();
+    }
+    console.log("add -");
   }
 
   @action find(contactId) {

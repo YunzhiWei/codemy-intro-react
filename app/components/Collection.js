@@ -16,11 +16,7 @@ class Collection extends React.Component {
   addContact = (e) => {
     e.preventDefault();
 
-    const contacts = this.props.contacts.all.slice();
-    const newID = contacts.length + 1;
-
     this.props.contacts.add({
-      id: newID,
       first_name: this.refs.first_name.value,
       last_name: this.refs.last_name.value,
       email: this.refs.email.value
