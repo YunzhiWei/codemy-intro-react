@@ -14,6 +14,7 @@ class Collection extends React.Component {
     console.log("will mount -")
   }
   addContact = (e) => {
+    console.log('addContact +');
     e.preventDefault();
 
     this.props.contacts.add({
@@ -26,7 +27,7 @@ class Collection extends React.Component {
     this.refs.last_name.value = null;
     this.refs.email.value = null;
 
-    console.log("button click");
+    console.log('addContact -');
   };
 
   newContact = () =>

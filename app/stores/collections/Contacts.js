@@ -40,13 +40,11 @@ class Contacts {
     const status = await response.status;
 
     if (status === 200) {
-      console.log("304");
-      this.all = await response.json();
+      console.log("200");
       this.fetchAll();
     }
     if (status === 201) {
-      console.log("304");
-      this.all = await response.json();
+      console.log("201");
       this.fetchAll();
     }
     console.log("add -");
