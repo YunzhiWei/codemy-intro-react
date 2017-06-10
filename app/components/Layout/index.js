@@ -1,27 +1,41 @@
 import React from 'react';
-import styles from './index.sass';
+import { observer, inject } from 'mobx-react';
 
 import { Link } from 'react-router';
 
-class Layout extends React.Component {
+import styles from './index.sass';
+
+import Guest from './Guest';
+import Member from './Member';
+
+@inject('user') @observer
+class Application extends React.Component {
+  guestOrMember() {
+    const { user } = this.props;
+
+    if (user.signedIn) {
+      return(<Member />);
+    }
+    else {
+      return(<Guest />);
+    }
+  }
+
   render() {
     return(
       <div id="Layout" className={styles.layout}>
         <div className={`home-menu pure-menu pure-menu-horizontal pure-menu-fixed ${styles.mainNav}`}>
           <Link to='/' className={`pure-menu-heading ${styles.heading}`}>Invoiced</Link>
-          <ul className='pure-menu-list'>
-            <li className='pure-menu-item'>
-              <Link to='/users/sign_in' className={`pure-menu-link ${styles.links}`}>Sign In</Link>
-            </li>
-          </ul>
+          { this.guestOrMember() }
         </div>
+
         {this.props.children}
       </div>
     )
   }
 }
 
-export default Layout;
+export default { Application };
 
 /*
 import classNames from 'classnames';
