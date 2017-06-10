@@ -36,10 +36,10 @@ class Collection extends React.Component {
         <form className="pure-form" onSubmit={this.addContact}>
           <fieldset>
             <legend>New contact</legend>
-            <input ref='email' type="email" placeholder="Email@domain.com" />
-            <input ref='first_name' type="Text" placeholder="First Name" />
-            <input ref='last_name' type="Text" placeholder="Last_Name" />
-            <button type="submit" className="pure-button pure-button-primary">Add Contact</button>
+            <input ref='email' type="email" className='pure-u-1-3' placeholder="Email@domain.com" />
+            <input ref='first_name' type="Text"  className='pure-u-1-4' placeholder="First Name" />
+            <input ref='last_name' type="Text"  className='pure-u-1-4' placeholder="Last_Name" />
+            <button type="submit" className="pure-button pure-button-primary">Add</button>
           </fieldset>
         </form>
       </div>
