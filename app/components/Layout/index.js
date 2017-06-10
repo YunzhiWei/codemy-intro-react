@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Layout.sass';
+import styles from './index.sass';
 
 import { Link } from 'react-router';
 
