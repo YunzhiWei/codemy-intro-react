@@ -5,18 +5,24 @@ import Api from 'helpers/api';
 
 class User {
   @observable isLoading = false;
+  @observable signedIn = false;
+  @observable email = null;
 
   @action setIsLoading(status) {
     this.isLoading = status;
+  }
+
+  @action setSignedIn(status, email) {
+    this.signedIn = status;
+    if (status && email) {
+      this.email = email;
+    }
   }
 
   async createSession(email, password) {
     console.log("createSession +");
 
     this.setIsLoading(true);
-
-    // console.log(email);
-    // console.log(password);
 
     const response = await Api.get(
       'sessions',
@@ -34,6 +40,7 @@ class User {
       localStorage.setItem('email', user.email);
 
       this.setIsLoading(false);
+      this.setSignedIn(true);
 
       browserHistory.push('/');
     }
@@ -41,10 +48,12 @@ class User {
       console.log("error");
     }
 
-    console.log("createSession +");
+    console.log("createSession -");
 
     localStorage.setItem('token', "authentication_token");
     localStorage.setItem('email', "chris@live.com");
+    this.setSignedIn(true, "chris@live.com");
+    this.setIsLoading(false);
     browserHistory.push('/');
   }
 }
