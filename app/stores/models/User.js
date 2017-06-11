@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router';
 import Api from 'helpers/api';
 
 class User {
+  sessions = 'sessions';
+
   @observable isLoading = false;
   @observable signedIn = false;
   @observable email = null;
@@ -42,11 +44,29 @@ class User {
     console.log('signIn -');
   }
 
-  @action signInFromStorage() {
+  @action async signInFromStorage() {
     console.log('signInFromStorage +');
-    this.email = localStorage.getItem('email');
-    this.signedIn = true;
-    this.isLoading = false;
+
+    const session = {
+      email: localStorage.getItem('email'),
+      authentication_token: localStorage.getItem('token')
+    }
+
+    // server side must be able to response accordingly
+    const response = await Api.get(this.sessions);
+    const status = await response.status;
+    if (status === 200) {
+      console.log('response OK');
+      this.email = localStorage.getItem('email');
+      this.signedIn = true;
+      this.isLoading = false;
+    }
+    // else we will never go into the web application
+    else {
+      console.log('response fail');
+      browserHistory.push('users/sign_in');
+    }
+
     console.log('signInFromStorage -', this.email);
   }
 
@@ -59,7 +79,7 @@ class User {
     this.setIsLoading(true);
 
     const response = await Api.get(
-      'sessions',
+      this.sessions,
       {email, password}
     );
 
