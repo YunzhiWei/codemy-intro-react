@@ -32,7 +32,7 @@ class User {
     console.log("localStorage: ", store);
 
     if (store.email && store.authentication_token) {
-      this.signInFromStorage();
+      this.signInFromStorage(store.email);
     }
     else if (email && password) {
       this.createSession(email, password);
@@ -44,27 +44,31 @@ class User {
     console.log('signIn -');
   }
 
-  @action async signInFromStorage() {
+  @action async signInFromStorage(email) {
     console.log('signInFromStorage +');
-
-    const session = {
-      email: localStorage.getItem('email'),
-      authentication_token: localStorage.getItem('token')
-    }
 
     // server side must be able to response accordingly
     const response = await Api.get(this.sessions);
     const status = await response.status;
     if (status === 200) {
       console.log('response OK');
-      this.email = localStorage.getItem('email');
+      this.email = email;
       this.signedIn = true;
       this.isLoading = false;
     }
     // else we will never go into the web application
     else {
       console.log('response fail');
-      browserHistory.push('users/sign_in');
+
+      localStorage.removeItem('email');
+      localStorage.removeItem('token');
+
+      this.email = null;
+      this.signedIn = false;
+      this.isLoading = false;
+
+      // I don't think we need ask the user to go to sign in page at this moment
+      // browserHistory.push('users/sign_in');
     }
 
     console.log('signInFromStorage -', this.email);
