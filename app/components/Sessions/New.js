@@ -9,7 +9,7 @@ class New extends React.Component {
 
     const { user } = this.props;
 
-    user.createSession(
+    user.signIn(
       this.email.value,
       this.password.value
     );
