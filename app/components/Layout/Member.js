@@ -9,6 +9,7 @@ class Member extends React.Component {
   render() {
     return(
       <ul className='pure-menu-list'>
+        <li className='pure-menu-item'>{this.props.user.email}</li>
         <li className='pure-menu-item'>
           <Link to='/users/sign_in' className={`pure-menu-link ${styles.links}`}>Sign Out</Link>
         </li>
