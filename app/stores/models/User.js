@@ -48,6 +48,7 @@ class User {
     console.log('signInFromStorage +');
 
     // server side must be able to response accordingly
+    // else we will never sign in correctly in web application
     const response = await Api.get(this.sessions);
     const status = await response.status;
     if (status === 200) {
@@ -56,19 +57,10 @@ class User {
       this.signedIn = true;
       this.isLoading = false;
     }
-    // else we will never go into the web application
     else {
       console.log('response fail');
 
-      localStorage.removeItem('email');
-      localStorage.removeItem('token');
-
-      this.email = null;
-      this.signedIn = false;
-      this.isLoading = false;
-
-      // I don't think we need ask the user to go to sign in page at this moment
-      // browserHistory.push('users/sign_in');
+      this.signOut();
     }
 
     console.log('signInFromStorage -', this.email);
@@ -76,7 +68,6 @@ class User {
 
   async createSession(email, password) {
     // this function may need to be modified based on your server side code
-
 
     console.log("createSession +");
 
@@ -113,6 +104,18 @@ class User {
     this.setSignedIn(true, "chris@live.com");
     this.setIsLoading(false);
     browserHistory.push('/');
+  }
+
+  @action signOut() {
+    localStorage.removeItem('email');
+    localStorage.removeItem('token');
+
+    this.email = null;
+    this.signedIn = false;
+    this.isLoading = false;
+
+    // I don't think we need ask the user to go to sign in page at this moment
+    // browserHistory.push('users/sign_in');
   }
 }
 
