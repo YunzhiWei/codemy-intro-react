@@ -51,6 +51,9 @@ class User {
   }
 
   async createSession(email, password) {
+    // this function may need to be modified based on your server side code
+
+
     console.log("createSession +");
 
     this.setIsLoading(true);
