@@ -39,6 +39,7 @@ class User {
     }
     else {
       console.log("no localStorage, no email & password");
+      this.signOut();
     }
 
     console.log('signIn -');
