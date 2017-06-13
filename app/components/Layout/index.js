@@ -11,17 +11,25 @@ import Member from './Member';
 @inject('user') @observer
 class Application extends React.Component {
   componentWillMount() {
+    console.log("componentWillMount +");
     this.props.user.signIn();
+    console.log("componentWillMount -");
   }
   guestOrMember() {
+    console.log("guestOrMember +");
+
     const { user } = this.props;
 
     if (user.signedIn) {
+      console.log("guestOrMember -");
       return(<Member />);
     }
     else {
+      console.log("guestOrMember -");
       return(<Guest />);
     }
+
+    console.log("guestOrMember -");
   }
 
   render() {

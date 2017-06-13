@@ -107,6 +107,8 @@ class User {
   }
 
   @action signOut() {
+    console.log("signOut +");
+
     localStorage.removeItem('email');
     localStorage.removeItem('token');
 
@@ -116,6 +118,8 @@ class User {
 
     // I don't think we need ask the user to go to sign in page at this moment
     // browserHistory.push('users/sign_in');
+
+    console.log("signOut -");
   }
 }
 
