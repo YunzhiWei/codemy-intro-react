@@ -54,8 +54,8 @@ class User {
     if (status === 200) {
       console.log('response OK');
       this.email = email;
-      this.signedIn = true;
-      this.isLoading = false;
+      this.setSignedIn(true);
+      this.setIsLoading(false);
     }
     else {
       console.log('response fail');
@@ -126,8 +126,8 @@ class User {
     localStorage.removeItem('token');
 
     this.email = null;
-    this.signedIn = false;
-    this.isLoading = false;
+    this.setSignedIn(false);
+    this.setIsLoading(false);
 
     // I don't think we need ask the user to go to sign in page at this moment
     // browserHistory.push('users/sign_in');
