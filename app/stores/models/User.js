@@ -113,7 +113,8 @@ class User {
     const status = await response.status;
 
     // server side must function accordingly
-    if(status === 200) {
+    // use 'true' to make sure that user will log out
+    if(true || status === 200) {
       this.setIsLoading(false);
       this.signOut();
     }
