@@ -106,6 +106,19 @@ class User {
     browserHistory.push('/');
   }
 
+  async destroySession() {
+    this.setIsLoading = true;
+
+    const response = await Api.delete(this.sessions);
+    const status = await response.status;
+
+    // server side must function accordingly
+    if(status === 200) {
+      this.setIsLoading = false;
+      this.signOut();
+    }
+  }
+
   @action signOut() {
     console.log("signOut +");
 

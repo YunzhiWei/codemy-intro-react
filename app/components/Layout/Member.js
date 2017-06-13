@@ -9,7 +9,7 @@ class Member extends React.Component {
   signOut = (e) => {
     e.preventDefault();
 
-    this.props.user.signOut();
+    this.props.user.destroySession();
   }
 
   render() {
@@ -20,7 +20,7 @@ class Member extends React.Component {
           <Link to='/users/sign_in' className={`pure-menu-link ${styles.links}`}>Sign Out</Link>
         </li> */}
         <li className='pure-menu-item'>
-          <a href="#" onClick={this.signOut}>Sign Out a</a>
+          <a href='#' className={`pure-menu-link ${styles.links}`} onClick={this.signOut}>Sign Out</a>
         </li>
       </ul>
     )
