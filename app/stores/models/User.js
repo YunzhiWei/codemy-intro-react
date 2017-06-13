@@ -107,14 +107,14 @@ class User {
   }
 
   async destroySession() {
-    this.setIsLoading = true;
+    this.setIsLoading(true);
 
     const response = await Api.delete(this.sessions);
     const status = await response.status;
 
     // server side must function accordingly
     if(status === 200) {
-      this.setIsLoading = false;
+      this.setIsLoading(false);
       this.signOut();
     }
   }
