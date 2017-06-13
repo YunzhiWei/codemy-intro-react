@@ -11,7 +11,8 @@ class Contacts {
   @action async fetchAll() {
     console.log("fetchAll +");
 
-    this.isLoading = false;
+    this.isLoading = true;
+
     const response = await Api.get(this.path);
     const status = await response.status;
 
@@ -21,6 +22,9 @@ class Contacts {
     if (status === 200) {
       console.log("200");
       this.all = await response.json();
+
+      // comment the following to see the spinner
+      //this.isLoading = false;
       console.log("this.all: ", this.all);
     }
     console.log("fetchAll -");
