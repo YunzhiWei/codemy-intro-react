@@ -24,7 +24,7 @@ class Contacts {
       this.all = await response.json();
 
       // comment the following to see the spinner
-      //this.isLoading = false;
+      this.isLoading = false;
       console.log("this.all: ", this.all);
     }
     console.log("fetchAll -");
