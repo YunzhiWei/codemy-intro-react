@@ -3,12 +3,24 @@ This is a practice following the online course 'intro react' from codemy.net
 
 # Resource mentioned in the course
 
-- [builtwithreact](http://builtwithreact.io)
+## Source Code
+
 - [github codemy](https://github.com/codemy)
 - [starterkit](https://github.com/codemy/web-starter-kit)
-- [flatuicolors](http://flatuicolors.com/)
+
+## Person Blog
+
 - [Dribbble](https://dribbble.com/SamHerbert)
+
+## UI Resource
+
+- [flatuicolors](http://flatuicolors.com/)
 - [Loader](http://samherbert.net/svg-loaders/)
+- [UI Gradient](https://uigradients.com/#Scooter)
+
+## Example Web Site
+
+- [builtwithreact](http://builtwithreact.io)
 
 # Learning
 
