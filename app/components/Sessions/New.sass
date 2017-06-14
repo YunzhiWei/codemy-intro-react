@@ -1,13 +1,26 @@
 @import 'vendor/flat-ui/colors'
 
-.signInForm
-  form
+.signInWrapper
+  background: linear-gradient(to bottom, #11FFBD, #AAFFA9)
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  > div
+    padding-top: 2em
+    margin-top: 10em
+    border-radius: 0.2em
+    box-shadow: 0.1em 0.1em 0.3em #bbbbbb
+    background: white
     width: 30em
-    margin-top: 3em
     margin-left: auto
     margin-right: auto
+  form
+    padding: 2em
     input
       margin-bottom: 1em !important
+
 .signInButton
   background: $flat-green-1
   margin-top: 1em
