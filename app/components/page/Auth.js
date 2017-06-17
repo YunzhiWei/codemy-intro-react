@@ -7,7 +7,7 @@ class Auth extends React.PureComponent {
     return (
       <div className={`${styles.authPageWrapper  }`}>
         <div className={`${styles.title}`}>
-          <h1>Invoice</h1>
+          <h1>{this.props.title}</h1>
         </div>
         <div className={`${styles.formWrapper}`}>
           {this.props.children}
