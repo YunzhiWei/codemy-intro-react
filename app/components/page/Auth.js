@@ -6,7 +6,7 @@ import styles from './Auth.sass';
 class Auth extends React.PureComponent {
   render () {
     return (
-      <div className={`${styles.signInWrapper}`}>
+      <div className={`${styles.authPageWrapper}`}>
         <div className={`${styles.title}`}>
           <h1>Invoice</h1>
         </div>
