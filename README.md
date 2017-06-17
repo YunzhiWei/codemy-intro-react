@@ -17,6 +17,7 @@ This is a practice following the online course 'intro react' from codemy.net
 - [flatuicolors](http://flatuicolors.com/)
 - [Loader](http://samherbert.net/svg-loaders/)
 - [UI Gradient](https://uigradients.com/#Scooter)
+- [Google Web Font](https://fonts.google.com/)
 
 ## Example Web Site
 
