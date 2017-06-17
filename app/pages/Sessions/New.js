@@ -21,8 +21,9 @@ class New extends React.Component {
   }
 
   render () {
+    const extras = <Link to='/users/sign_up'>Don't have an account</Link>;
     return (
-      <page.Auth>
+      <page.Auth extras={extras}>
         <form className='pure-form pure-form-stacked' onSubmit={this.onSubmitForm}>
           <label>Email</label><input type='email' ref={node => { this.email = node; }} placeholder='email' className='pure-input-1' />
           <label>Password</label><input type='password' ref={node => { this.password = node; }} placeholder='password' className='pure-input-1' />

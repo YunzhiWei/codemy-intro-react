@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from "react-router";
 
 import styles from './Auth.sass';
 
 class Auth extends React.PureComponent {
   render () {
     return (
-      <div className={`${styles.authPageWrapper}`}>
+      <div className={`${styles.authPageWrapper  }`}>
         <div className={`${styles.title}`}>
           <h1>Invoice</h1>
         </div>
@@ -14,7 +13,7 @@ class Auth extends React.PureComponent {
           {this.props.children}
         </div>
         <div className={styles.extras}>
-          <Link to='/users/sign_up'>Don't have an account</Link>
+          {this.props.extras}
         </div>
       </div>
     )
