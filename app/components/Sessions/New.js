@@ -1,5 +1,8 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
+
+import { Link } from "react-router";
+
 import styles from './New.sass';
 
 @inject('user') @observer
@@ -27,6 +30,9 @@ class New extends React.Component {
             <label>Password</label><input type='password' ref={node => { this.password = node; }} placeholder='password' className='pure-input-1' />
             <button className={`pure-button pure-input-1 ${styles.signInButton}`}>Sign In</button>
           </form>
+        </div>
+        <div className={styles.extras}>
+          <Link to='/users/sign_up'>Don't have an account</Link>
         </div>
       </div>
     )
