@@ -1,0 +1,53 @@
+@import 'vendor/flat-ui/colors'
+@import 'styles/colors'
+
+=fixed_width_and_center($width)
+  width: $width
+  margin-left: auto
+  margin-right: auto
+
+.signInWrapper
+  background: linear-gradient(to bottom, #11FFBD, #AAFFA9)
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  form
+    padding: 2em
+    input
+      margin-bottom: 1em !important
+
+.extras
+  +fixed_width_and_center(30em)
+  text-align: center
+  a
+    color: white
+    margin-top: 3em
+
+.title
+  +fixed_width_and_center(30em)
+  color: white
+  text-align: center
+  margin-top: 6em
+  h1
+    font-weight: 100
+    text-shadow: 0.1em 0.1em 0.3em #000000
+
+.signInButton
+  background: $base-light-blue
+  margin-top: 1em
+  box-shadow: 0.1em 0.1em 0em $base-dark-blue
+  &:hover &:visited &:focus
+    box-shadow: 0.1em 0.1em 0em $base-light-blue
+  &:active
+    box-shadow: 0em 0em 0em
+
+
+.formWrapper
+  padding-top: 2em
+  margin-top: 2em
+  border-radius: 0.2em
+  box-shadow: 0.1em 0.1em 0.3em #bbbbbb
+  background: white
+  +fixed_width_and_center(30em)
