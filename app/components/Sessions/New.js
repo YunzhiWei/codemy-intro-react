@@ -18,7 +18,10 @@ class New extends React.Component {
   render () {
     return (
       <div className={`${styles.signInWrapper}`}>
-        <div>
+        <div className={`${styles.title}`}>
+          <h1>Invoice</h1>
+        </div>
+        <div className={`${styles.formWrapper}`}>
           <form className='pure-form pure-form-stacked' onSubmit={this.onSubmitForm}>
             <label>Email</label><input type='email' ref={node => { this.email = node; }} placeholder='email' className='pure-input-1' />
             <label>Password</label><input type='password' ref={node => { this.password = node; }} placeholder='password' className='pure-input-1' />
