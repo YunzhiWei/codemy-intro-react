@@ -13,7 +13,7 @@ class Auth extends React.PureComponent {
           {this.props.children}
         </div>
         <div className={styles.extras}>
-          {this.props.extras}
+          {this.props.extras || null}
         </div>
       </div>
     )
